@@ -652,8 +652,14 @@ const genreFilter = (arr, str) => {
     console.log(filter)
 }
 
+genreFilter(movies, 'animation') //works as intended 
+
+/**
+ *      2
+ */
+
 const generalFilter = (arr, prop, str) => {
-    const filter = arr.filter(item => item[prop] == str)
+    const filter = arr.filter(item => item[prop] == str) //function that returns all movies with the given key and value
     console.log (filter)
 }
 generalFilter(movies, 'rating', 'G') //more general but not very useful i think...
@@ -663,13 +669,12 @@ generalFilter(movies, 'director', 'David Lynch')
 
 
 
-genreFilter(movies, 'animation') //works as intended 
 
 // const sameDirectorAndWriter = movies.filter(item => item.writer.includes(item.director))
 // console.log(sameDirectorAndWriter) First pass
 
 /**
- *      2
+ *      3
  */
 
 const writerAndDirector = (arr) => {
@@ -679,7 +684,7 @@ const writerAndDirector = (arr) => {
 writerAndDirector(movies) // lists which movies have the director as ONE of the writers. works as intended
 
 /**
- *      3
+ *      4
  */
 
 const onlyWriterisDirector = (arr) => {
@@ -693,7 +698,7 @@ onlyWriterisDirector(movies)  //lists movies where the director is also the ONLY
 // console.log(sixtiesFilter)
 
 /**
- *      4
+ *      5
  */
 
 const decadeFilter = (arr, year) => {

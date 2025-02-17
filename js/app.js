@@ -643,21 +643,44 @@ const movies = [
 // const genreFilter = movies.filter(item => item.genre.includes('comedy')) //filters by genre 
 // console.log(genreFilter)
 
+/**
+ *      1
+ */
+
 const genreFilter = (arr, str) => {
     const filter = arr.filter(item => item.genre.includes(str)); //function that filters by genre inputted by user.
     console.log(filter)
 }
+
+const generalFilter = (arr, prop, str) => {
+    const filter = arr.filter(item => item[prop] == str)
+    console.log (filter)
+}
+generalFilter(movies, 'rating', 'G') //more general but not very useful i think...
+generalFilter(movies, 'genre', 'comedy')
+generalFilter(movies, 'director', 'David Lynch')
+
+
+
 
 genreFilter(movies, 'animation') //works as intended 
 
 // const sameDirectorAndWriter = movies.filter(item => item.writer.includes(item.director))
 // console.log(sameDirectorAndWriter) First pass
 
+/**
+ *      2
+ */
+
 const writerAndDirector = (arr) => {
     const filter = arr.filter(item => item.writer.includes(item.director))
     console.log(filter)
 }
 writerAndDirector(movies) // lists which movies have the director as ONE of the writers. works as intended
+
+/**
+ *      3
+ */
 
 const onlyWriterisDirector = (arr) => {
     const filter = arr.filter(item => item.director.includes(item.writer))
@@ -669,9 +692,13 @@ onlyWriterisDirector(movies)  //lists movies where the director is also the ONLY
 // const sixtiesFilter = movies.filter(item => item.date.getFullYear() >= 1960 && item.date.getFullYear() < 1970)  //first pass, there's already problems with this
 // console.log(sixtiesFilter)
 
+/**
+ *      4
+ */
+
 const decadeFilter = (arr, year) => {
     const filter = arr.filter(item => 
-        item.date.getFullYear() >= year && item.date.getFullYear() < year + 10  //first function pass. only works when user inputs the decade, which is fine i guess.  This would be a dropdown menu ideally where the user can select by decade.  May think about using mod arithmetic to calc year. Probably best to use regex(?). 
+        item.date.getFullYear() >= year && item.date.getFullYear() < year + 10  //first function pass. only works when user inputs the decade, which is fine i guess; that's what we want.  This would be a dropdown menu ideally where the user can select by decade.  May think about using mod arithmetic to calc year. Probably best to use regex(?). 
     )
     console.log(filter)
 }

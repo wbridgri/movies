@@ -637,6 +637,7 @@ const movies = [
         genre: ['animation', 'adventure', 'comedy', 'family', 'fantasy']
     },
 ]
+const row = document.getElementById('row')
 
 // console.log(movies) just Testing...
 
@@ -688,8 +689,22 @@ writerAndDirector(movies) // lists which movies have the director as ONE of the 
  */
 
 const onlyWriterisDirector = (arr) => {
-    const filter = arr.filter(item => item.director.includes(item.writer))
+    const oWiDFilter = arr.filter(item => item.director.includes(item.writer))
     console.log(filter)
+
+    const col = document.createElement('div')
+    col.classList.add('col')
+    const ul = document.createElement('ul')
+    ul.classList.add('ul')
+    oWiDFilter.forEach(movie =>
+    {
+        const li = document.createElement('li')
+        li.innerText = `${movie.title}`
+        ul.appendChild(li)
+    }
+)
+col.appendChild(ul)
+row.appendChild(col)
 }
 onlyWriterisDirector(movies)  //lists movies where the director is also the ONLY writer credited to the film. I think this works because movies.director is a single string, not an array
 
@@ -702,13 +717,51 @@ onlyWriterisDirector(movies)  //lists movies where the director is also the ONLY
  */
 
 const decadeFilter = (arr, year) => {
-    const filter = arr.filter(item => 
+    const moviesFilter = arr.filter(item => 
         item.date.getFullYear() >= year && item.date.getFullYear() < year + 10  //first function pass. only works when user inputs the decade, which is fine i guess; that's what we want.  This would be a dropdown menu ideally where the user can select by decade.  May think about using mod arithmetic to calc year. Probably best to use regex(?). 
     )
-    console.log(filter)
+
+    const col = document.createElement('div')
+    col.classList.add('col')
+    const ul = document.createElement('ul')
+    ul.classList.add('ul')
+    moviesFilter.forEach(movie =>
+    {
+        const li = document.createElement('li')
+        li.innerText = `${movie.title}`
+        ul.appendChild(li)
+    }
+)
+col.appendChild(ul)
+row.appendChild(col)
+
+
 }
 
 decadeFilter(movies, 1970)
+
+/**
+ * Attempting FN typ shi...
+ */
+
+
+
+
+
+/**
+ * 
+ * what we want: take the output of my current filters as the input of 
+ * 
+ * 
+ */
+
+
+
+
+
+
+
+
 
 
 
